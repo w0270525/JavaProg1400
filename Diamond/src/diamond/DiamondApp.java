@@ -36,6 +36,7 @@ public class DiamondApp {
 				isValidEntry = true;
 			}
 		}
+		scanner.close();
 			// Set some values to our variables
 			
 			diamondSize = numericResponse;

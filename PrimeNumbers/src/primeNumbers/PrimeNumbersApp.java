@@ -55,6 +55,7 @@ public class PrimeNumbersApp {
 			System.out.println();
 			System.out.println("Try again? [Y/N]");
 			tryAgain = scanner.nextLine();
+		
 			
 			
 			
