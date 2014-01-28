@@ -106,6 +106,7 @@ public class Assignment1JonathanPrinceCalculator {
 
 	static boolean isInteger(String number)
 	{
+		
 		if(Integer.parseInt(number) < 0)
 		{
 		
