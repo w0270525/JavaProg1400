@@ -14,7 +14,7 @@ public class Assignment2 {
 	final int ROWS = 4;
 	final int COLUMNS= 4;
 	int[][] flightSeating = new int[ROWS][COLUMNS];
-		
+	String passengerName;	
 	
 	public void start()
 	{
@@ -43,7 +43,7 @@ public class Assignment2 {
 		}
 		else
 		{
-			System.exit(1);
+			System.exit(1);//quits program
 		}
 	
 	
@@ -53,10 +53,9 @@ public class Assignment2 {
 	{	
 		boolean validName = false;
 		// Capture name for ticket
-		
-		while (validName == false)
+				while (validName == false)
 		{
-			String passengerName;
+			
 			passengerName = JOptionPane.showInputDialog("Please enter name.");
 	
 			if(!passengerName.trim().equals("")) //checks for empty strings
@@ -70,13 +69,10 @@ public class Assignment2 {
 				validName = false;
 			}
 		}
-		
-		
-		
-		int chosenClass = 0; // Declare Class selection variable.
+			
+				int chosenClass = 0; // Declare Class selection variable.
 		boolean openClass = false;
-		while(openClass == false)
-		{
+			
 		// Class selection window
 		Object[] options2 = {"First Class", "Economy"};
 		chosenClass = JOptionPane.showOptionDialog(null,
@@ -85,31 +81,79 @@ public class Assignment2 {
 				JOptionPane.QUESTION_MESSAGE, null, options2, chosenClass);
 		switch(chosenClass)
 		{
-			case 0:
+			case 0: // First class
 			{
 				openClass = checkFirstClass(flightSeating);
+				if(openClass == false)
+				{
+					noEmptySeat();
+					
+				}
+				break; 
 			}
-			case 1:
+			case 1: // Economy class
 			{
 				openClass = checkEconomy(flightSeating);
+				if(openClass == false)
+				{
+					noEmptySeat();
+				
+				}
+				break;
 			}
 			case -1:
 			{
 				opening();
+				break;
 			}
-		}
+		
 		
 		}
-
 		// Seat Preference
 		int chosenSeat = 0;
+		boolean openChoice = false;
+		
 		Object[] options3 = {"Window Seat", "Aisle Seat"};
 		chosenSeat = JOptionPane.showOptionDialog(null,
 				"Would you like a window or aisle seat?", "Seat Selection",
 				JOptionPane.OK_CANCEL_OPTION, JOptionPane.QUESTION_MESSAGE,
 				null, options3, chosenSeat);
+			switch(chosenSeat) 
+			{
+				case 0://Window seat
+				{
+					openChoice = checkSeatChoice(flightSeating, chosenClass, chosenSeat);
+					if(openChoice == false)
+					{
+						noEmptySeat();
+					}
+					break;
+				}
+				case 1:// Aisle seat
+				{
+					openChoice = checkSeatChoice(flightSeating, chosenClass, chosenSeat);
+					if(openChoice == false)
+					{
+						noEmptySeat();
+					}
+					break;
+				}
+				case -1:
+				{
+					opening();
+					break;
+				}
+			}
+			bookTicket(flightSeating, chosenClass, chosenSeat);
+			//bookTicket(int[][] seating, int classSelected, int chosenSeat)
+			JOptionPane.showConfirmDialog(null, "<html><body><h3>Flight booked.</h3><br />"
+					+ "Ticket Details<br />"
+					+ "Customer Name: " + passengerName +"<br />"
+					+ "Row: " + chosenClass
+					+ "Column: " + chosenSeat);
 			
-				
+			//back to start page
+			opening();
 	}
 
 	
@@ -210,6 +254,132 @@ public class Assignment2 {
 			}
 		}
 		return false;
+	}
+	
+	public static boolean checkSeatChoice(int[][] seating, int classSelected, int chosenSeat)
+	{	
+		if(classSelected == 0 && chosenSeat ==0) //First class and window
+		{
+			for(int r=0;r<seating.length/2;r++)
+			{
+				for(int c=0;c<seating.length;c+=seating.length-1)
+				{
+					if(seating[r][c] == 0)
+					{
+						return true;
+					}
+				}
+			}
+		}
+		
+		if(classSelected == 0 && chosenSeat ==1) //First class and aisle
+		{
+			for(int r=0;r<seating.length/2;r++)
+			{
+				for(int c=1;c<seating.length-1;c++)
+				{
+					if(seating[r][c] == 0)
+					{
+						return true;
+					}
+				}
+			}
+		}
+		
+		if(classSelected == 1 && chosenSeat == 0) //economy class and window
+		{
+			for(int r=seating.length/2;r<seating.length;r++)
+			{
+				for(int c=0;c<seating.length;c+=seating.length-1)
+				{
+					if(seating[r][c] == 0)
+					{
+						return true;
+					
+					}
+				}
+			}
+		}
+		
+		if(classSelected == 1 && chosenSeat ==1) //economy class and aisle
+		{
+			for(int r=seating.length/2;r<seating.length;r++)
+			{
+				for(int c=1;c<seating.length-1;c++)
+				{
+					if(seating[r][c] == 0)
+					{
+						return true;
+					}
+				}
+			}
+		}
+		
+		return false;  //if nothing available
+	}
+	
+	public void bookTicket(int[][] seating, int classSelected, int chosenSeat)
+	{ search:
+		if(classSelected == 0 && chosenSeat ==0) //First class and window
+		{
+			for(int r=0;r<seating.length/2;r++)
+			{
+				for(int c=0;c<seating.length;c+=seating.length-1)
+				{
+					if(seating[r][c] == 0)
+					{
+						flightSeating[r][c]=1;
+						break search;
+						
+					}
+				}
+			}
+		}
+	search:
+		if(classSelected == 0 && chosenSeat ==1) //First class and aisle
+		{
+			for(int r=0;r<seating.length/2;r++)
+			{
+				for(int c=1;c<seating.length-1;c++)
+				{
+					if(seating[r][c] == 0)
+					{
+						flightSeating[r][c]=1;
+						break search;
+					}
+				}
+			}
+		}
+	search:	
+		if(classSelected == 1 && chosenSeat == 0) //economy class and window
+		{
+			for(int r=seating.length/2;r<seating.length;r++)
+			{
+				for(int c=0;c<seating.length;c+=seating.length-1)
+				{
+					if(seating[r][c] == 0)
+					{
+						flightSeating[r][c]=1;
+						break search;
+					}
+				}
+			}
+		}
+	search:	
+		if(classSelected == 1 && chosenSeat ==1) //economy class and aisle
+		{
+			for(int r=seating.length/2;r<seating.length;r++)
+			{
+				for(int c=1;c<seating.length-1;c++)
+				{
+					if(seating[r][c] == 0)
+					{
+						flightSeating[r][c]=1;
+						break search;
+					}
+				}
+			}
+		}
 	}
 }
 
