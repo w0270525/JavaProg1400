@@ -14,4 +14,11 @@
 	<natures>
 		<nature>org.eclipse.jdt.core.javanature</nature>
 	</natures>
+	<linkedResources>
+		<link>
+			<name>src/assignment2JonathanPrince/Activity Diagram Jonathan Prince.vsd</name>
+			<type>1</type>
+			<location>E:/Winter 2014/PROG 1400/Workspace/Assignment2JonathanPrince/src/assignment2JonathanPrince/Activity Diagram Jonathan Prince.vsd</location>
+		</link>
+	</linkedResources>
 </projectDescription>
