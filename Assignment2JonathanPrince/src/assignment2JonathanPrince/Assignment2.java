@@ -58,16 +58,25 @@ public class Assignment2 {
 			
 			passengerName = JOptionPane.showInputDialog("Please enter name.");
 	
-			if(!passengerName.trim().equals("")) //checks for empty strings
+			if(passengerName != null)
 			{
+				if(!passengerName.trim().equals("")) //checks for empty strings
+				{
+					
+					validName = true;
+				}	
 				
-				validName = true;
-			}	
-			else
-			{
-				JOptionPane.showMessageDialog(null, "Error: You must type a name.");
-				validName = false;
+				else
+				{
+					JOptionPane.showMessageDialog(null, "Error: You must type a name.");
+					validName = false;
+				}
 			}
+			else 
+			{
+				opening();
+			}
+			
 		}
 			
 				int chosenClass = 0; // Declare Class selection variable.
