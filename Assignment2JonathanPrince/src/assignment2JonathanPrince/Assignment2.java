@@ -27,50 +27,189 @@ public class Assignment2 {
 	{
 		int newBooking = 0;
 		// Start of booking process with seating arraignment.
-		String s1= "<html><body><table>";
 		
-		
-				
-		String s4= "</table></body></html>";
+		String htmlTable = SeatingTable(flightSeating);
 		
 		Object[] options = {"Book a New Passenger",
 		                    "Exit"};
-		newBooking = JOptionPane.showOptionDialog(null, "Welcome to the Flight Booker", "Flight Booker",
-				JOptionPane.OK_CANCEL_OPTION, JOptionPane.PLAIN_MESSAGE, null, options, newBooking);
+		newBooking = JOptionPane.showOptionDialog(null, 
+				htmlTable, "Flight Booker",
+				JOptionPane.OK_CANCEL_OPTION, JOptionPane.PLAIN_MESSAGE,
+				null, options, newBooking);
 		
 		if(newBooking == 0)
 		{
 			booking();
 		}
+		else
+		{
+			System.exit(1);
+		}
+	
 	
 	}
 
 	public void booking()
-	{
-		int chosenClass = 0;
-				
-		Object[] options2 = {"First Class", "Economy"};
-		chosenClass = JOptionPane.showOptionDialog(null, "Would you like First Class or Economy Class?",
-				"Select a Class", JOptionPane.OK_CANCEL_OPTION, JOptionPane.QUESTION_MESSAGE, null, options2, chosenClass);
+	{	
+		boolean validName = false;
+		// Capture name for ticket
 		
+		while (validName == false)
+		{
+			String passengerName;
+			passengerName = JOptionPane.showInputDialog("Please enter name.");
+	
+			if(!passengerName.trim().equals("")) //checks for empty strings
+			{
 				
-				//(null, "Would you like First Class or Economy Class?", "Select a Class", JOptionPane.YES_NO_OPTION, options2, options2, chosenClass);
+				validName = true;
+			}	
+			else
+			{
+				JOptionPane.showMessageDialog(null, "Error: You must type a name.");
+				validName = false;
+			}
+		}
+		
+		
+		
+		int chosenClass = 0; // Declare Class selection variable.
+		boolean openClass = false;
+		while(openClass == false)
+		{
+		// Class selection window
+		Object[] options2 = {"First Class", "Economy"};
+		chosenClass = JOptionPane.showOptionDialog(null,
+				"Would you like First Class or Economy Class?",
+				"Select a Class", JOptionPane.OK_CANCEL_OPTION,
+				JOptionPane.QUESTION_MESSAGE, null, options2, chosenClass);
+		switch(chosenClass)
+		{
+			case 0:
+			{
+				openClass = checkFirstClass(flightSeating);
+			}
+			case 1:
+			{
+				openClass = checkEconomy(flightSeating);
+			}
+			case -1:
+			{
+				opening();
+			}
+		}
+		
+		}
+
+		// Seat Preference
+		int chosenSeat = 0;
+		Object[] options3 = {"Window Seat", "Aisle Seat"};
+		chosenSeat = JOptionPane.showOptionDialog(null,
+				"Would you like a window or aisle seat?", "Seat Selection",
+				JOptionPane.OK_CANCEL_OPTION, JOptionPane.QUESTION_MESSAGE,
+				null, options3, chosenSeat);
+			
+				
 	}
 
+	
+
+
 	public static String checkSeating(int seat) {
-		// checks if seating is empty returning red or full returning green.
+		// checks if seating is empty returning green or full returning red.
 		if(seat == 1)
-		{
-			return "'green'";
-		}
-		else
 		{
 			return "'red'";
 		}
+		else
+		{
+			return "'green'";
+		}
 	}
 	
-	public static String seatingTable(int seatingArray)  {
+	public static String SeatingTable(int[][] Seating)  
+	{	// code for html coding for seating.
+		String str1 = "<html><body ><h3>Welcome to Flight Booker."
+				+ "</h3><table align='center' cellpadding='15'>";
+		//nested for loops to create tables in html
+		String str2 = "";
+				for(int row = 0; row < Seating.length; row++)
+				{
+					str2 += "<tr><td>window</td>";
+					for(int col = 0; col < Seating[1].length; col++)
+					{
+						if(col == Seating[1].length / 2)
+						{
+							str2 += "<td>aisle</td>";
+						}
+						str2 += "<td bgcolor=" + checkSeating(Seating[row][col]) +
+								">" + (row+1) + "," + (col+1) + "</td>";
+						
+					}
+					str2 += "<td>window</td></tr>";
+					
+					
+				}
+				
 		
+				
+		String str3 = "</table><p>Would you like to book a new flight?</p>"
+				+ "</body></html>";
+		
+		
+		return str1 + str2 + str3; // returns table for seating.
+		
+	}
+	
+	public void nextFlight()
+	{
+		JOptionPane.showMessageDialog(null, "The next flight is in 3 hours.");
+		opening();
+	}
+	
+	public void noEmptySeat()
+	{
+		int noEmpty = JOptionPane.showConfirmDialog(null, "There are no available"
+				+ " seats in that selection, would you like to choose a different seat?");
+		if(noEmpty == 0)
+		{
+			booking();
+		}
+		else
+		{
+			opening();
+		}
+
+	}
+	
+	public static boolean checkFirstClass(int[][] seating)
+	{// checks for seats available in first class
+		for(int r=0;r<seating[0].length/2;r++)
+		{
+			for(int c=0;c<seating[1].length/2;c++)
+			{
+				if(seating[r][c] == 0)
+				{
+					return true;
+				}
+			}
+		}
+		return false;
+	}
+	
+	public static boolean checkEconomy(int[][] seating)
+	{
+		for(int r=seating[0].length/2;r<seating[0].length;r++)
+		{
+			for(int c=seating[1].length/2;c<seating[1].length;c++)
+			{
+				if(seating[r][c] == 0)
+				{
+					return true;
+				}
+			}
+		}
+		return false;
 	}
 }
 
