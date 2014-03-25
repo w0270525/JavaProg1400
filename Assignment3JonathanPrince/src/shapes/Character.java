@@ -12,5 +12,5 @@ public abstract class Character {
 	
 	public abstract int healthPoints();
 	
-	
+	public abstract int getDamage();
 }

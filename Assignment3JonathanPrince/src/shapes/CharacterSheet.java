@@ -220,7 +220,7 @@ public class CharacterSheet extends JFrame {
 		lblPlayerVersusEnemy.setHorizontalAlignment(SwingConstants.CENTER);
 		panelBattle.add(lblPlayerVersusEnemy);
 		
-		JTextArea textBattle = new JTextArea();
+		final JTextArea textBattle = new JTextArea();
 		textBattle.setEditable(false);
 		textBattle.setBounds(58, 170, 455, 151);
 		panelBattle.add(textBattle);
@@ -243,6 +243,7 @@ public class CharacterSheet extends JFrame {
 			@Override
 			public void mouseClicked(MouseEvent arg0) {
 				panelCharacterSelect.setVisible(true);
+				textBattle.setText("");
 				panelBattle.setVisible(false);
 			}
 		});
