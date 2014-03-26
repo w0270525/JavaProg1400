@@ -1,21 +1,45 @@
 package shapes;
+import Employee;
+
 import java.util.*;
+
+import javax.swing.JTextArea;
+
+import shapes.Rogue;
+import shapes.Warrior;
+import shapes.Wizard;
+import shapes.Weapon;
+import shapes.Character;
+import shapes.CharacterSheet;
 
 public class Game {
  
-	public Game(String characterType, String weapon, String armor)	{
-	String eCharacterType = null;
-	String eWeapon = null;
-	String eArmor = null;
+	public Game(int characterType, int weapon, int armor)	{
+	int eCharacterType = 0;
+	int eWeapon = 0;
+	int eArmor = 0;
 	
-		ArrayList<String> battleText=new ArrayList<String>();
+	final Character[] playerCharacter = new Character[3];
+	final Character[] enemyCharacter = new Character[3];
+	ArrayList<String> battleText  = new ArrayList<String>();
 		
-	NewEnemyCharacter(eCharacterType, eWeapon, eArmor);
-		
+	EnemyCharacter(eCharacterType, eWeapon, eArmor);
+	
+	
+	playerCharacter[1] = new Warrior();
+	playerCharacter[2] = new Rogue ();
+	playerCharacter[3] = new Wizard();
+	
+	enemyCharacter[1] = new Warrior();
+	enemyCharacter[2] = new Rogue ();
+	enemyCharacter[3] = new Wizard();
+	
+	
+	
 	}
 // rolls to determine enemy character
-	private void NewEnemyCharacter(String eCharacterType, String eWeapon, String eArmor) {
-		// TODO Auto-generated method stub
+	private void EnemyCharacter(int eCharacterType, int eWeapon, int eArmor) {
+	
 		Random roll = new Random();
 		int characterRoll = roll.nextInt(3)+1;
 		
@@ -23,15 +47,15 @@ public class Game {
 		{
 			case 1:
 			{
-			eCharacterType = "Wizard";
+			eCharacterType = 1;//war
 			}
 			case 2:
 			{
-				eCharacterType = "Warrior";
+				eCharacterType = 2;//rogue
 			}
 			case 3: 
 			{
-				eCharacterType="Rogue";
+				eCharacterType= 3;//wizard
 			}
 			
 		}
@@ -40,15 +64,15 @@ public class Game {
 		{
 			case 1:
 			{
-			eWeapon = "Axe";
+			eWeapon = 1;//axe
 			}
 			case 2:
 			{
-				eWeapon = "Sword";
+				eWeapon = 2;// sword
 			}
 			case 3: 
 			{
-				eWeapon = "Mace";
+				eWeapon = 3;//mace
 			}
 			
 		}
@@ -57,15 +81,15 @@ public class Game {
 		{
 			case 1:
 				{
-				eArmor = "Leather";
+				eArmor = 1;// leather
 				}
 			case 2:
 				{
-				eArmor = "Chain";
+				eArmor = 2;//chain
 				}
 			case 3: 
 				{
-				eWeapon = "Plate";
+				eWeapon = 3;//plate
 				}
 			
 		}

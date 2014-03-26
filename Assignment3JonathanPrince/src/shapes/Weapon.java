@@ -1,9 +1,15 @@
 package shapes;
 
-public abstract class Weapon {
+public class Weapon {
+	private String weaponName;
+	private int minDamage;
+	private int maxDamage;
 	
-	public abstract int WeaponDamageLow();
 	
-	public abstract int WeaponDamageHigh();
+	public Weapon(String weaponName, int minDamage, int maxDamage) {
+		this.weaponName = weaponName;
+		this.minDamage =  minDamage;
+		this.maxDamage =  maxDamage;
+	}
 
 }

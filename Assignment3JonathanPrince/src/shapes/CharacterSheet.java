@@ -34,9 +34,9 @@ public class CharacterSheet extends JFrame {
 	
 	//Variables for creating Game
 	
-	private String armor;
-	private String weaponSelection;
-	private String characterType;
+	private int armor;
+	private int weaponSelection;
+	private int characterType;
 	
 	public static void start() {
 		EventQueue.invokeLater(new Runnable() {
@@ -163,43 +163,43 @@ public class CharacterSheet extends JFrame {
 				panelBattle.setVisible(true);
 				if (rdbtnWarrior.isSelected())
 				{
-					characterType = "Warrior";
+					characterType = 1;
 				}
 				else if(rdbtnRogue.isSelected())
 				{
-					characterType = "Rogue";
+					characterType = 2;
 				}
 				else if (rdbtnWizard.isSelected())
 				{
-					characterType = "Wizard";
+					characterType = 3;
 				}
 				
 				
 				if(rdbtnAxe.isSelected())
 				{
-					weaponSelection = "Axe";
+					weaponSelection = 1;
 				}
 				else if(rdbtnSword.isSelected())
 				{
-					weaponSelection = "Sword";
+					weaponSelection = 2;
 				}
 				else 
 				{
-					weaponSelection = "Mace";
+					weaponSelection = 3;
 				}
 				
 				
 				if(rdbtnLeather.isSelected())
 				{
-					armor = "Leather";
+					armor = 1;
 				}
 				else if (rdbtnChainMail.isSelected())
 				{
-					armor = "Chain";
+					armor = 2;
 				}
 				else if (rdbtnPlate.isSelected())
 				{
-					armor = "Plate";
+					armor = 3;
 				}
 				/*  // to test the radio buttons selection
 				 * System.out.println(weaponSelection + ", " + armor);

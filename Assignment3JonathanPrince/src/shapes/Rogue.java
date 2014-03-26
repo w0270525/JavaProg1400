@@ -35,5 +35,5 @@ public class Rogue extends Character {
 	}
 
 	
-	//rogue --> chance to back stab = instant kill.
+	//rogue --> chance to back stab = instant kill. - not implemented
 }
