@@ -8,6 +8,7 @@ public abstract class Character {
 	private int damage;
 	private int armorPoints;
 	
+	public Character(String Name, )
 	public abstract double damageModifier();
 	
 	public abstract int healthPoints();

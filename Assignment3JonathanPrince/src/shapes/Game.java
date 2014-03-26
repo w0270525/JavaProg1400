@@ -1,5 +1,5 @@
 package shapes;
-import Employee;
+
 
 import java.util.*;
 
@@ -10,7 +10,7 @@ import shapes.Warrior;
 import shapes.Wizard;
 import shapes.Weapon;
 import shapes.Character;
-import shapes.CharacterSheet;
+
 
 public class Game {
  
@@ -21,6 +21,11 @@ public class Game {
 	
 	final Character[] playerCharacter = new Character[3];
 	final Character[] enemyCharacter = new Character[3];
+	final Weapon[] playerWeapon = new Weapon[3];
+	final Weapon[] enemyWeapon = new Weapon[3];
+	final Armor[] playerArmor = new Armor[3];
+	final Armor[] enemyArmor = new Armor[3];
+	
 	ArrayList<String> battleText  = new ArrayList<String>();
 		
 	EnemyCharacter(eCharacterType, eWeapon, eArmor);
@@ -34,8 +39,15 @@ public class Game {
 	enemyCharacter[2] = new Rogue ();
 	enemyCharacter[3] = new Wizard();
 	
+	playerWeapon[1] = new Weapon("Axe", 4, 6);
+	playerWeapon[2] = new Weapon("Sword", 2, 8);
+	playerWeapon[3] = new Weapon("Mace", 5, 5);
 	
+	enemyWeapon[1] = new Weapon("Axe", 4, 6);
+	enemyWeapon[2] = new Weapon("Sword", 2, 8);
+	enemyWeapon[3] = new Weapon("Mace", 5, 5);
 	
+	System.out.println(playerCharacter[1].getDamage());
 	}
 // rolls to determine enemy character
 	private void EnemyCharacter(int eCharacterType, int eWeapon, int eArmor) {
