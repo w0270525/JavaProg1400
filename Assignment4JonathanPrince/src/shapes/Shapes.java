@@ -3,13 +3,16 @@ package shapes;
 import java.awt.Shape;
 
 public abstract class Shapes {
-// Superclass for all shapes to be drawn.
-	
+	// Superclass for all shapes to be drawn.
+
+	// general shape size and positions.
 	private int shapeHeight;
 	private int shapeWidth;
-	
+
 	private int shapePositionX;
 	private int shapePostionY;
+
+	// getters and setters for superclass shapes.
 	public abstract Shape getShape();
 
 	public int getShapeHeight() {
@@ -43,6 +46,5 @@ public abstract class Shapes {
 	public void setShapePostionY(int shapePostionY) {
 		this.shapePostionY = shapePostionY;
 	}
-	
-	
+
 }
