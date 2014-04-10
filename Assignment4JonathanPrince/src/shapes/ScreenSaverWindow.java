@@ -1,16 +1,22 @@
 package shapes;
 
-import java.awt.BorderLayout;
+
 import java.awt.EventQueue;
+
+
 
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
+
 import java.awt.CardLayout;
 
+@SuppressWarnings("serial")
 public class ScreenSaverWindow extends JFrame {
 
 	private JPanel contentPane;
+	private int height= 0;
+	private int width = 0;
 
 	/**
 	 * Launch the application.
@@ -39,8 +45,18 @@ public class ScreenSaverWindow extends JFrame {
 		setContentPane(contentPane);
 		contentPane.setLayout(new CardLayout(0, 0));
 		
-		Shapes shapes = new Shapes();
-		contentPane.add(shapes, "name_109285974239924");
+		Animate animate = new Animate();
+		contentPane.add(animate, "name_109285974239924");
 	}
+	
+	/*public int getHeight() {
+		this.height =  Frame.HEIGHT;
+		return height;
+	}
+	
+	public int getWidth() {
+		this.width=Frame.WIDTH;
+		return width;
+	}*/
 
 }

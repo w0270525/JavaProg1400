@@ -1,41 +1,48 @@
 package shapes;
 
-import java.awt.Graphics;
-import java.awt.Graphics2D;
-import java.awt.RenderingHints;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-import java.awt.geom.Area;
+import java.awt.Shape;
 
-import javax.swing.JPanel;
-import javax.swing.Timer;
+public abstract class Shapes {
+// Superclass for all shapes to be drawn.
+	
+	private int shapeHeight;
+	private int shapeWidth;
+	
+	private int shapePositionX;
+	private int shapePostionY;
+	public abstract Shape getShape();
 
-@SuppressWarnings("serial")
-public class Shapes extends JPanel {
-	
-	
-	private Timer timer = new Timer(60, new TimerAction()); 
-	
-	
-	
-	@Override
-	public void paintComponent(Graphics g) {
-
-		
-		timer.start();
+	public int getShapeHeight() {
+		return shapeHeight;
 	}
-	
-	
-	
-	private class TimerAction implements ActionListener {
-		@Override
-		public void actionPerformed(ActionEvent arg0) {
-			// TODO Auto-generated method stub
-				Shapes.this.repaint();
-		}
-	}
-	
 
+	public void setShapeHeight(int shapeHeight) {
+		this.shapeHeight = shapeHeight;
+	}
+
+	public int getShapeWidth() {
+		return shapeWidth;
+	}
+
+	public void setShapeWidth(int shapeWidth) {
+		this.shapeWidth = shapeWidth;
+	}
+
+	public int getShapePositionX() {
+		return shapePositionX;
+	}
+
+	public void setShapePositionX(int shapePositionX) {
+		this.shapePositionX = shapePositionX;
+	}
+
+	public int getShapePostionY() {
+		return shapePostionY;
+	}
+
+	public void setShapePostionY(int shapePostionY) {
+		this.shapePostionY = shapePostionY;
+	}
 	
 	
 }
