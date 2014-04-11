@@ -21,7 +21,7 @@ public class Animate extends JPanel {
 		super.paintComponent(g);
 		Graphics2D g2d = (Graphics2D) g;
 		ArrayList<Shapes> jonsShapes = new ArrayList<>();
-
+		
 		jonsShapes.add(superRectangle);
 		jonsShapes.add(circle);
 
