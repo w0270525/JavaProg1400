@@ -1,9 +1,6 @@
 package shapes;
 
-
 import java.awt.EventQueue;
-
-
 
 import javax.swing.JFrame;
 import javax.swing.JPanel;
@@ -12,12 +9,14 @@ import javax.swing.border.EmptyBorder;
 import java.awt.CardLayout;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import java.awt.event.KeyAdapter;
+import java.awt.event.KeyEvent;
 
 @SuppressWarnings("serial")
 public class ScreenSaverWindow extends JFrame {
 
 	private JPanel contentPane;
-	
+
 	/**
 	 * Launch the application.
 	 */
@@ -44,16 +43,21 @@ public class ScreenSaverWindow extends JFrame {
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		contentPane.setLayout(new CardLayout(0, 0));
-		
+
 		Animate animate = new Animate();
+		animate.addKeyListener(new KeyAdapter() {
+			@Override
+			public void keyPressed(KeyEvent arg0) {
+
+			}
+		});
 		animate.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent arg0) {
-				
+
 			}
 		});
 		contentPane.add(animate, "name_109285974239924");
 	}
-	
-	
+
 }
