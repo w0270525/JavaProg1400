@@ -10,14 +10,14 @@ import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
 import java.awt.CardLayout;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 
 @SuppressWarnings("serial")
 public class ScreenSaverWindow extends JFrame {
 
 	private JPanel contentPane;
-	private int height= 0;
-	private int width = 0;
-
+	
 	/**
 	 * Launch the application.
 	 */
@@ -46,17 +46,14 @@ public class ScreenSaverWindow extends JFrame {
 		contentPane.setLayout(new CardLayout(0, 0));
 		
 		Animate animate = new Animate();
+		animate.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent arg0) {
+				
+			}
+		});
 		contentPane.add(animate, "name_109285974239924");
 	}
 	
-	/*public int getHeight() {
-		this.height =  Frame.HEIGHT;
-		return height;
-	}
 	
-	public int getWidth() {
-		this.width=Frame.WIDTH;
-		return width;
-	}*/
-
 }

@@ -9,6 +9,9 @@ public class Circle extends Shapes {
 		setShapePositionX(xPos);
 		setShapePostionY(yPos);
 		setShapeWidth(width);
+		
+		setMovementX(20);
+		setMovementY(20);
 	}
 
 	@Override
@@ -23,5 +26,7 @@ public class Circle extends Shapes {
 
 		return circle;
 	}
+
+
 
 }

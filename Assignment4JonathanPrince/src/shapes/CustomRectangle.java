@@ -5,6 +5,8 @@ import java.awt.geom.Rectangle2D;
 
 public class CustomRectangle extends Shapes {
 
+
+	
 	public CustomRectangle(int xPos, int yPos, int width, int height) {
 		setShapeHeight(height);
 		setShapePositionX(xPos);

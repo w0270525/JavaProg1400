@@ -17,8 +17,15 @@ public class Star extends Shapes {
 	public Shape getShape() {
 		// TODO Auto-generated method stub
 		GeneralPath star = new GeneralPath();
-		int xValues[] = { 0, 100, 0, 100 };
-		int yValues[] = { 0, 100, 100, 0 };
+		int xPosition= getShapePositionX();
+		int yPosition= getShapePostionY();
+		int width = getShapeWidth();
+		int height=getShapeHeight();
+		
+		
+		
+		int xValues[] = { xPosition, (xPosition-(width/2)), xPosition + (width/2), xPosition-(width/2), xPosition + (width/2)};
+		int yValues[] = {yPosition, yPosition+height, yPosition+(height/3), yPosition+(height/3), yPosition+height};
 
 		// define the general path
 
@@ -28,10 +35,14 @@ public class Star extends Shapes {
 		for (int i = 1; i < xValues.length; i++) {
 			star.lineTo(xValues[i], yValues[i]);
 		}
+		//star.lineTo(xPosition, yPosition);
+	
 		star.closePath();
 		// draw for lines or fill for solid
 		
 		return star;
 	}
+
+
 
 }
