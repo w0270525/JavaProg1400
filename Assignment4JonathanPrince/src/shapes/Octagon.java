@@ -1,5 +1,6 @@
 package shapes;
 
+import java.awt.Color;
 import java.awt.Shape;
 import java.awt.geom.GeneralPath;
 
@@ -39,5 +40,13 @@ public class Octagon extends Shapes {
 
 		return octy;
 	}
+
+	@Override
+	public Color shapeColor() {
+		// TODO Auto-generated method stub
+		Color color = new Color(0,244,244);
+		return color;
+	}
+
 
 }

@@ -1,17 +1,25 @@
 package shapes;
 
+import java.awt.Color;
+import java.awt.Paint;
 import java.awt.Shape;
 import java.awt.geom.Ellipse2D;
 
 public class Circle extends Shapes {
+	private int shapeHeight;
+	private int shapeWidth;
+	private int morph = 1;
+
+	
+
 	public Circle(int xPos, int yPos, int width, int height) {
 		setShapeHeight(height);
 		setShapePositionX(xPos);
 		setShapePostionY(yPos);
 		setShapeWidth(width);
-		
-		setMovementX(20);
-		setMovementY(20);
+
+		setMovementX(2);
+		setMovementY(2);
 	}
 
 	@Override
@@ -27,6 +35,56 @@ public class Circle extends Shapes {
 		return circle;
 	}
 
+	/* overrides to allow circle to change size. */
+	@Override
+	public int getShapeHeight() {
+		int multiplier = -1;
 
+		if (shapeHeight >= 50 || shapeHeight <= 15) {
+			morph = morph * multiplier;
+			shapeHeight = shapeHeight + morph;
+		} else {
+			shapeHeight = shapeHeight + morph;
 
-}
+		}
+		
+		return shapeHeight;
+	}
+
+	@Override
+	public void setShapeHeight(int shapeHeight) {
+		this.shapeHeight = shapeHeight;
+
+	}
+
+	@Override
+	public int getShapeWidth() {
+		
+		int multiplier = -1;
+
+		if (shapeWidth >= 50 || shapeWidth <= 15) {
+			morph = morph * multiplier;
+			shapeWidth = shapeWidth + morph;
+		} else {
+			shapeWidth = shapeWidth + morph;
+
+		}
+		return shapeWidth;
+	}
+
+	@Override
+	public void setShapeWidth(int shapeWidth) {
+		this.shapeWidth = shapeWidth;
+	}
+
+	@Override
+	public Color shapeColor() {
+		// TODO Auto-generated method stub
+		Color color = new Color(0,0,244);
+		return color;
+	}
+
+	
+	
+}// bottom 
+

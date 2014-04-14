@@ -1,10 +1,11 @@
 package shapes;
 
+import java.awt.Color;
 import java.awt.Shape;
 import java.awt.geom.Rectangle2D;
 
 public class CustomRectangle extends Shapes {
-
+	int slide;
 
 	
 	public CustomRectangle(int xPos, int yPos, int width, int height) {
@@ -24,6 +25,23 @@ public class CustomRectangle extends Shapes {
 
 		Rectangle2D rectangle = new Rectangle2D.Double(x, y, width, height);
 		return rectangle;
+	}
+
+	@Override
+	public Color shapeColor() {
+		// TODO Auto-generated method stub
+		
+		for(int i=0; i>=255; i++)
+		{
+			if(i>=255)
+			{
+				i=0;
+			}
+			slide = i;
+		}
+		
+		Color color = new Color(0, 0, slide);
+		return color;
 	}
 
 }

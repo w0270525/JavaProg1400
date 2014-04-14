@@ -1,5 +1,7 @@
 package shapes;
 
+import java.awt.Color;
+import java.awt.Paint;
 import java.awt.Shape;
 
 public abstract class Shapes {
@@ -13,7 +15,8 @@ public abstract class Shapes {
 	private int shapePostionY;
 	private int maxWidth;
 	private int maxHeight;
-	
+	private String shapeColor;
+
 	private int movementX = 5;
 	private int movementY = 5;
 
@@ -68,13 +71,12 @@ public abstract class Shapes {
 		this.shapePostionY = shapePostionY;
 	}
 
-
+	// general movement 
 	public void move() {
-		
-		// TODO Auto-generated method stub
+
 		int maxWidth = getMaxWidth();
 		int maxHeight = getMaxHeight();
-	
+
 		int multiplier = -1;
 		if (getShapePositionX() >= maxWidth || getShapePositionX() <= 0) {
 			movementX = movementX * multiplier;
@@ -86,9 +88,10 @@ public abstract class Shapes {
 		}
 		setShapePostionY(getShapePostionY() + movementY);
 		;
-		//System.out.println("Current x " + movementX);
+	
 	}
 
+	public abstract Color shapeColor();
 	public int getMaxWidth() {
 		return maxWidth;
 	}

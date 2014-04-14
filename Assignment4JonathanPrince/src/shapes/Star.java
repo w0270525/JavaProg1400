@@ -1,5 +1,6 @@
 package shapes;
 
+import java.awt.Color;
 import java.awt.Graphics2D;
 import java.awt.Shape;
 import java.awt.geom.GeneralPath;
@@ -14,6 +15,7 @@ public class Star extends Shapes {
 	}
 
 	@Override
+	// gets wire-frame star.
 	public Shape getShape() {
 		// TODO Auto-generated method stub
 		GeneralPath star = new GeneralPath();
@@ -23,9 +25,11 @@ public class Star extends Shapes {
 		int height=getShapeHeight();
 		
 		
-		
-		int xValues[] = { xPosition, (xPosition-(width/2)), xPosition + (width/2), xPosition-(width/2), xPosition + (width/2)};
-		int yValues[] = {yPosition, yPosition+height, yPosition+(height/3), yPosition+(height/3), yPosition+height};
+		// positions for a star
+		int xValues[] = { xPosition, (xPosition-(width/2)), xPosition + 
+				(width/2), xPosition-(width/2), xPosition + (width/2)};
+		int yValues[] = {yPosition, yPosition+height, yPosition+(height/3),
+				yPosition+(height/3), yPosition+height};
 
 		// define the general path
 
@@ -43,6 +47,12 @@ public class Star extends Shapes {
 		return star;
 	}
 
+	@Override
+	public Color shapeColor() {
+		// TODO Auto-generated method stub
+		Color color = new Color(255,0,0);
+		return color;
+	}
 
 
 }
