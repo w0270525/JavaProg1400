@@ -9,8 +9,7 @@ import javax.swing.border.EmptyBorder;
 import java.awt.CardLayout;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
-import java.awt.event.KeyAdapter;
-import java.awt.event.KeyEvent;
+
 
 @SuppressWarnings("serial")
 public class ScreenSaverWindow extends JFrame {
@@ -45,12 +44,8 @@ public class ScreenSaverWindow extends JFrame {
 		contentPane.setLayout(new CardLayout(0, 0));
 
 		Animate animate = new Animate();
-		animate.addKeyListener(new KeyAdapter() {
-			@Override
-			public void keyPressed(KeyEvent arg0) {
-
-			}
-		});
+		
+		
 		animate.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent arg0) {

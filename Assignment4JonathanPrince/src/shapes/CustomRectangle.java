@@ -7,7 +7,6 @@ import java.awt.geom.Rectangle2D;
 public class CustomRectangle extends Shapes {
 	int slide;
 
-	
 	public CustomRectangle(int xPos, int yPos, int width, int height) {
 		setShapeHeight(height);
 		setShapePositionX(xPos);
@@ -30,16 +29,15 @@ public class CustomRectangle extends Shapes {
 	@Override
 	public Color shapeColor() {
 		// TODO Auto-generated method stub
-		
-		for(int i=0; i>=255; i++)
-		{
-			if(i>=255)
-			{
-				i=0;
+		int slide = 0;
+		for (int i = 0; i >= 255; i++) {
+			if (i >= 255) {
+				i = 0;
+				slide = i;
 			}
 			slide = i;
+
 		}
-		
 		Color color = new Color(0, 0, slide);
 		return color;
 	}

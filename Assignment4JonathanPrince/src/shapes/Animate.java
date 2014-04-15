@@ -2,34 +2,33 @@ package shapes;
 
 import java.awt.Graphics;
 import java.awt.Graphics2D;
-import java.awt.Paint;
+import java.awt.RenderingHints;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.awt.event.MouseEvent;
+import java.awt.geom.Area;
 import java.util.ArrayList;
+import java.util.Random;
 
 import javax.swing.JPanel;
 import javax.swing.Timer;
 
-@SuppressWarnings("serial")
+@SuppressWarnings({ "serial", "unused" })
 public class Animate extends JPanel {
+
+	Random random = new Random();
 	
-	
-	
-	
-	
-	Circle circle = new Circle(220, 120, 50, 50);
-	CustomRectangle superRectangle = new CustomRectangle(50, 50, 50, 50);
-	Octagon octagon = new Octagon(45,60,50,50);
-	Star star = new Star(30, 30, 50, 50);
-	private int clicked = 0; 
-	
+	Circle circle = new Circle(180, 25, 50, 50);
+	CustomRectangle superRectangle = new CustomRectangle(100, 70, 50, 50);
+	Octagon octagon = new Octagon(35, 55, 50, 50);
+	Star star = new Star(60, 75, 50, 50);
+
 	// timer to repaint all shapes
+
 	private Timer timer = new Timer(50, new TimerAction());
-	
 
 	@Override
 	public void paintComponent(Graphics g) {
+		
 		super.paintComponent(g);
 		
 		Graphics2D g2d = (Graphics2D) g;
@@ -40,9 +39,7 @@ public class Animate extends JPanel {
 		jonsShapes.add(circle);
 		jonsShapes.add(star);
 		jonsShapes.add(octagon);
-		for(int n=0; n < clicked; n++) {
-			jonsShapes.add(superRectangle);
-		}
+		
 		int width = getWidth();
 		int height = getHeight();
 		for (int i = 0; i < jonsShapes.size(); i++) {
@@ -51,9 +48,13 @@ public class Animate extends JPanel {
 			int shapeHeight = jonsShapes.get(i).getShapeHeight();
 			jonsShapes.get(i).setMaxHeight(height - shapeHeight);
 			jonsShapes.get(i).setMaxWidth(width - shapeWidth);
+			
 			jonsShapes.get(i).move();
 			jonsShapes.get(i).getShapePositionX();
-			g2d.setColor((jonsShapes.get(i).shapeColor()));;
+			g2d.setColor((jonsShapes.get(i).shapeColor()));
+			g2d.setRenderingHint(RenderingHints.KEY_ANTIALIASING,
+					RenderingHints.VALUE_ANTIALIAS_ON);
+			
 			
 			// Alternates solid and filled shapes.
 			if (i % 2 == 0) {
@@ -63,25 +64,31 @@ public class Animate extends JPanel {
 			}
 		}
 
-	timer.start();
+		timer.start();
 
 	}
+
+
 	
-	// mouse to add another shape 
-	public void mouseClicked(MouseEvent arg0) {
-		
-		clicked +=1;
-	}
-	
+
 	private class TimerAction implements ActionListener {
+		
 		@Override
 		public void actionPerformed(ActionEvent arg0) {
-			
+
 			Animate.this.repaint();
+			
 
 		}
 	}
 	
-	
+	// possible test for collision detection. Not implemented yet.
+	/*
+	public static boolean testIntersection(Shapes shapeA, Shapes shapeB) {
+		   Area areaA = new Area(shapeA);
+		   areaA.intersect(new Area(shapeB));
+		   return !areaA.isEmpty();
+		}
 
+	*/
 }

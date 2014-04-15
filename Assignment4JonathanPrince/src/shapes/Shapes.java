@@ -1,7 +1,6 @@
 package shapes;
 
 import java.awt.Color;
-import java.awt.Paint;
 import java.awt.Shape;
 
 public abstract class Shapes {
@@ -13,12 +12,12 @@ public abstract class Shapes {
 
 	private int shapePositionX;
 	private int shapePostionY;
+
 	private int maxWidth;
 	private int maxHeight;
-	private String shapeColor;
 
-	private int movementX = 5;
-	private int movementY = 5;
+	private int movementX = 3;
+	private int movementY = 3;
 
 	public int getMovementX() {
 		return movementX;
@@ -71,27 +70,44 @@ public abstract class Shapes {
 		this.shapePostionY = shapePostionY;
 	}
 
-	// general movement 
+	// governs how shapes move.
 	public void move() {
 
 		int maxWidth = getMaxWidth();
 		int maxHeight = getMaxHeight();
 
 		int multiplier = -1;
-		if (getShapePositionX() >= maxWidth || getShapePositionX() <= 0) {
+		// will bound off walls, set to the wall if outside of the wall, fixes
+		// problems with resizing.
+		if (getShapePositionX() >= maxWidth) {
+			setShapePositionX(maxWidth);
+			movementX = movementX * multiplier;
+		}
+		if (getShapePositionX() <= 0) {
+			setShapePositionX(0);
 			movementX = movementX * multiplier;
 		}
 		setShapePositionX(getShapePositionX() + movementX);
 
-		if (getShapePostionY() >= maxHeight || getShapePostionY() <= 0) {
+		if (getShapePostionY() >= maxHeight) {
+
+			setShapePostionY(maxHeight);
+			movementY = movementY * multiplier;
+
+		}
+		if (getShapePostionY() <= 0) {
+			setShapePostionY(0);
 			movementY = movementY * multiplier;
 		}
 		setShapePostionY(getShapePostionY() + movementY);
 		;
-	
+
 	}
 
 	public abstract Color shapeColor();
+	
+
+
 	public int getMaxWidth() {
 		return maxWidth;
 	}

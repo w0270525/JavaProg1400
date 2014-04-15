@@ -23,9 +23,9 @@ public class Octagon extends Shapes {
 		int height = getShapeHeight();
 		GeneralPath octy = new GeneralPath();
 		// assume 50x50 0,0 -25,50 25,16.6 -25,16.6 25,50
-		int xValues[] = { xPosition, (xPosition - (width / 2)),
+		int xValues[] = { xPosition, (xPosition - (width / 3)),
 				xPosition + (width / 2), xPosition - (width / 2),
-				xPosition + (width / 2) };
+				xPosition + (width / 3) };
 		int yValues[] = { yPosition, yPosition + height,
 				yPosition + (height / 3), yPosition + (height / 3),
 				yPosition + height };
@@ -48,5 +48,7 @@ public class Octagon extends Shapes {
 		return color;
 	}
 
+	
+	
 
 }

@@ -1,7 +1,7 @@
 package shapes;
 
 import java.awt.Color;
-import java.awt.Graphics2D;
+
 import java.awt.Shape;
 import java.awt.geom.GeneralPath;
 
@@ -19,17 +19,18 @@ public class Star extends Shapes {
 	public Shape getShape() {
 		// TODO Auto-generated method stub
 		GeneralPath star = new GeneralPath();
-		int xPosition= getShapePositionX();
-		int yPosition= getShapePostionY();
+		int xPosition = getShapePositionX();
+		int yPosition = getShapePostionY();
 		int width = getShapeWidth();
-		int height=getShapeHeight();
-		
-		
+		int height = getShapeHeight();
+
 		// positions for a star
-		int xValues[] = { xPosition, (xPosition-(width/2)), xPosition + 
-				(width/2), xPosition-(width/2), xPosition + (width/2)};
-		int yValues[] = {yPosition, yPosition+height, yPosition+(height/3),
-				yPosition+(height/3), yPosition+height};
+		int xValues[] = { xPosition, (xPosition - (width / 3)),
+				xPosition + (width / 2), xPosition - (width / 2),
+				xPosition + (width / 3) };
+		int yValues[] = { yPosition, yPosition + height,
+				yPosition + (height / 3), yPosition + (height / 3),
+				yPosition + height };
 
 		// define the general path
 
@@ -39,20 +40,20 @@ public class Star extends Shapes {
 		for (int i = 1; i < xValues.length; i++) {
 			star.lineTo(xValues[i], yValues[i]);
 		}
-		//star.lineTo(xPosition, yPosition);
-	
+		// star.lineTo(xPosition, yPosition);
+
 		star.closePath();
 		// draw for lines or fill for solid
-		
+
 		return star;
 	}
 
 	@Override
 	public Color shapeColor() {
 		// TODO Auto-generated method stub
-		Color color = new Color(255,0,0);
+		Color color = new Color(255, 0, 0);
 		return color;
 	}
 
-
+	
 }
