@@ -4,8 +4,8 @@ import java.awt.Color;
 import java.awt.Shape;
 import java.awt.geom.GeneralPath;
 
-public class Octagon extends Shapes {
-	public Octagon(int xPos, int yPos, int width, int height) {
+public class Triangle extends Shapes {
+	public Triangle(int xPos, int yPos, int width, int height) {
 
 		setShapeHeight(height);
 		setShapePositionX(xPos);
@@ -21,24 +21,20 @@ public class Octagon extends Shapes {
 		int yPosition = getShapePostionY();
 		int width = getShapeWidth();
 		int height = getShapeHeight();
-		GeneralPath octy = new GeneralPath();
+		GeneralPath triangle = new GeneralPath();
 		// assume 50x50 0,0 -25,50 25,16.6 -25,16.6 25,50
-		int xValues[] = { xPosition, (xPosition - (width / 3)),
-				xPosition + (width / 2), xPosition - (width / 2),
-				xPosition + (width / 3) };
-		int yValues[] = { yPosition, yPosition + height,
-				yPosition + (height / 3), yPosition + (height / 3),
-				yPosition + height };
-		octy.moveTo(xValues[0], yValues[0]);
+		int xValues[] = { xPosition,xPosition + (width / 2), xPosition - (width / 2)};
+		int yValues[] = { yPosition, yPosition + (height / 3), yPosition + (height / 3)};
+		triangle.moveTo(xValues[0], yValues[0]);
 
 		for (int i = 1; i <xValues.length; i++) {
-			octy.lineTo(xValues[i], yValues[i]);
+			triangle.lineTo(xValues[i], yValues[i]);
 			
 		}
 		
-		octy.closePath();
+		triangle.closePath();
 
-		return octy;
+		return triangle;
 	}
 
 	@Override

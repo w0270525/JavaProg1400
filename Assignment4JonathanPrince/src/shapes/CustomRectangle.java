@@ -31,14 +31,14 @@ public class CustomRectangle extends Shapes {
 		// TODO Auto-generated method stub
 		int slide = 0;
 		for (int i = 0; i >= 255; i++) {
-			if (i >= 255) {
+			if (i >= 254) {
 				i = 0;
 				slide = i;
 			}
 			slide = i;
 
 		}
-		Color color = new Color(0, 0, slide);
+		Color color = new Color(0, 255, slide);
 		return color;
 	}
 
