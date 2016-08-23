@@ -49,6 +49,7 @@ public class Assignment2 {
 	
 	}
 
+	
 	public void booking()
 	{	
 		boolean validName = false;
@@ -230,6 +231,7 @@ public class Assignment2 {
 		}
 		else
 		{
+			nextFlight();
 			opening();
 		}
 
@@ -239,8 +241,10 @@ public class Assignment2 {
 	{// checks for seats available in first class
 		for(int r=0;r<seating[0].length/2;r++)
 		{
-			for(int c=0;c<seating[1].length/2;c++)
+		
+			for(int c=0;c<seating[1].length;c++)
 			{
+			
 				if(seating[r][c] == 0)
 				{
 					return true;
@@ -327,7 +331,7 @@ public class Assignment2 {
 		return false;  //if nothing available
 	}
 	
-	public void bookTicket(int[][] seating, int classSelected, int chosenSeat)
+	private void bookTicket(int[][] seating, int classSelected, int chosenSeat)
 	{ search:
 		if(classSelected == 0 && chosenSeat ==0) //First class and window
 		{

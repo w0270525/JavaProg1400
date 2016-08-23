@@ -4,6 +4,11 @@ import java.util.Random;
 
 public class Wizard extends Character {
 
+	public Wizard(String Name) {
+		super(Name);
+		// TODO Auto-generated constructor stub
+	}
+
 	@Override
 	public double damageModifier() {
 		// TODO Auto-generated method stub

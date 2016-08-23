@@ -15,6 +15,7 @@ import java.awt.event.MouseEvent;
 public class ScreenSaverWindow extends JFrame {
 
 	private JPanel contentPane;
+	Animate animate;
 
 	/**
 	 * Launch the application.
@@ -43,13 +44,13 @@ public class ScreenSaverWindow extends JFrame {
 		setContentPane(contentPane);
 		contentPane.setLayout(new CardLayout(0, 0));
 
-		Animate animate = new Animate();
+		animate = new Animate();
 		
 		
 		animate.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent arg0) {
-
+				animate.addShape();
 			}
 		});
 		contentPane.add(animate, "name_109285974239924");

@@ -9,7 +9,7 @@ public class Weapon {
 	
 	
 	public Weapon(String weaponName, int minDamage, int maxDamage) {
-		this.weaponName = weaponName;
+		this.setWeaponName(weaponName);
 		this.minDamage =  minDamage;
 		this.maxDamage =  maxDamage;
 		
@@ -27,6 +27,12 @@ public class Weapon {
 		{
 			return maxDamage;
 		}
+	}
+	public String getWeaponName() {
+		return weaponName;
+	}
+	public void setWeaponName(String weaponName) {
+		this.weaponName = weaponName;
 	}
 
 }

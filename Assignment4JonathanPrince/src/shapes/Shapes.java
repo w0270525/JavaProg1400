@@ -83,6 +83,7 @@ public abstract class Shapes {
 			setShapePositionX(maxWidth);
 			movementX = movementX * multiplier;
 		}
+		// sets to zero if outside bounds, less of a problem than with maxWidth and maxHeight
 		if (getShapePositionX() <= 0) {
 			setShapePositionX(0);
 			movementX = movementX * multiplier;

@@ -12,6 +12,7 @@ public class CustomRectangle extends Shapes {
 		setShapePositionX(xPos);
 		setShapePostionY(yPos);
 		setShapeWidth(width);
+		
 	}
 
 	@Override
@@ -30,12 +31,12 @@ public class CustomRectangle extends Shapes {
 	public Color shapeColor() {
 		// TODO Auto-generated method stub
 		int slide = 0;
-		for (int i = 0; i >= 255; i++) {
+		for (int i = 0; i > 255; i++) {
 			if (i >= 254) {
 				i = 0;
 				slide = i;
 			}
-			slide = i;
+			
 
 		}
 		Color color = new Color(0, 255, slide);

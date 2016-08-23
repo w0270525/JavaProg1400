@@ -31,13 +31,13 @@ public class Game {
 	EnemyCharacter(eCharacterType, eWeapon, eArmor);
 	
 	
-	playerCharacter[1] = new Warrior();
-	playerCharacter[2] = new Rogue ();
-	playerCharacter[3] = new Wizard();
+	playerCharacter[1] = new Warrior("Warrior");
+	playerCharacter[2] = new Rogue ("Rogue");
+	playerCharacter[3] = new Wizard("Wizard");
 	
-	enemyCharacter[1] = new Warrior();
-	enemyCharacter[2] = new Rogue ();
-	enemyCharacter[3] = new Wizard();
+	enemyCharacter[1] = new Warrior("Warrior");
+	enemyCharacter[2] = new Rogue ("Rogue");
+	enemyCharacter[3] = new Wizard("Wizard");
 	
 	playerWeapon[1] = new Weapon("Axe", 4, 6);
 	playerWeapon[2] = new Weapon("Sword", 2, 8);

@@ -36,7 +36,7 @@ public class Star extends Shapes {
 
 		star.moveTo(xValues[0], yValues[0]);
 
-		// looping through the rest of the x and y values
+		// looping through the rest of the x and y values.
 		for (int i = 1; i < xValues.length; i++) {
 			star.lineTo(xValues[i], yValues[i]);
 		}

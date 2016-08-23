@@ -15,18 +15,28 @@ import javax.swing.Timer;
 
 @SuppressWarnings({ "serial", "unused" })
 public class Animate extends JPanel {
-
+	
+	
+	// not used, was going to try to have shapes start at a random start point.
 	Random random = new Random();
 
-	Circle circle = new Circle(180, 25, 50, 50);
-	CustomRectangle superRectangle = new CustomRectangle(100, 70, 50, 50);
-	Triangle triangle = new Triangle(35, 55, 50, 50);
-	Star star = new Star(60, 75, 50, 50);
-
 	// timer to repaint all shapes
+	
+	ArrayList<Shapes> jonsShapes = new ArrayList<Shapes>();
 
 	private Timer timer = new Timer(50, new TimerAction());
-
+	
+	public Animate()
+	{
+		jonsShapes.add(new Circle(180, 25, 50, 50));
+		jonsShapes.add(new CustomRectangle(100, 1, 50, 50));
+		jonsShapes.add(new Triangle(35, 200, 50, 50));
+		jonsShapes.add(new Star(120, 100, 50, 50));
+		
+	}
+	
+	
+	// adds shapes and draws to screen.
 	@Override
 	public void paintComponent(Graphics g) {
 
@@ -34,12 +44,8 @@ public class Animate extends JPanel {
 
 		Graphics2D g2d = (Graphics2D) g;
 
-		ArrayList<Shapes> jonsShapes = new ArrayList<>();
+		
 
-		jonsShapes.add(superRectangle);
-		jonsShapes.add(circle);
-		jonsShapes.add(star);
-		jonsShapes.add(triangle);
 
 		int width = getWidth();
 		int height = getHeight();
@@ -49,7 +55,6 @@ public class Animate extends JPanel {
 			int shapeHeight = jonsShapes.get(i).getShapeHeight();
 			jonsShapes.get(i).setMaxHeight(height - shapeHeight);
 			jonsShapes.get(i).setMaxWidth(width - shapeWidth);
-
 			jonsShapes.get(i).move();
 			jonsShapes.get(i).getShapePositionX();
 			g2d.setColor((jonsShapes.get(i).shapeColor()));
@@ -76,11 +81,19 @@ public class Animate extends JPanel {
 			Animate.this.repaint();
 		}
 	}
+	
+	public void addShape()
+	{
+		jonsShapes.add(new Circle(180, 25, 50, 50));
+	}
 
 	// possible test for collision detection. Not implemented yet.
 	/*
-	 * public static boolean testIntersection(Shapes shapeA, Shapes shapeB) {
-	 * Area areaA = new Area(shapeA); areaA.intersect(new Area(shapeB)); return
-	 * !areaA.isEmpty(); }
+	  public static boolean testIntersection(Shapes shapeA, Shapes shapeB) {
+	  
+	  Area areaA = new Area(shapeA); areaA.intersect(new Area(shapeB)); 
+	  return !areaA.isEmpty(); 
+	  }
+	  
 	 */
 }

@@ -16,7 +16,7 @@ public class Circle extends Shapes {
 		setShapePostionY(yPos);
 		setShapeWidth(width);
 
-		setMovementX(2);
+		setMovementX(3);
 		setMovementY(2);
 	}
 

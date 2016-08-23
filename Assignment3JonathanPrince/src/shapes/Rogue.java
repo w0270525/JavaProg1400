@@ -4,6 +4,11 @@ import java.util.Random;
 
 public class Rogue extends Character {
 
+	public Rogue(String Name) {
+		super(Name);
+		// TODO Auto-generated constructor stub
+	}
+
 	@Override
 	public double damageModifier() {
 		return 1;
