@@ -12,7 +12,7 @@ public class CustomRectangle extends Shapes {
 		setShapePositionX(xPos);
 		setShapePostionY(yPos);
 		setShapeWidth(width);
-		
+
 	}
 
 	@Override
@@ -36,7 +36,6 @@ public class CustomRectangle extends Shapes {
 				i = 0;
 				slide = i;
 			}
-			
 
 		}
 		Color color = new Color(0, 255, slide);

@@ -10,6 +10,7 @@ import javax.imageio.ImageIO;
 import javax.swing.JPanel;
 import javax.swing.Timer;
 
+@SuppressWarnings("serial")
 public class AnimationScreen extends JPanel {
 //need for assignment
 	private Timer timer = new Timer(33, new TimerAction(this));

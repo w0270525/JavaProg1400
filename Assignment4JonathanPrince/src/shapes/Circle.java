@@ -29,8 +29,8 @@ public class Circle extends Shapes {
 		int width = getShapeWidth();
 
 		Ellipse2D circle = new Ellipse2D.Double(x, y, width, height);
-		
-	    return circle;
+
+		return circle;
 	}
 
 	/* overrides to allow circle to change size. */
@@ -74,7 +74,4 @@ public class Circle extends Shapes {
 		return color;
 	}
 
-	
-	
 }// bottom
-

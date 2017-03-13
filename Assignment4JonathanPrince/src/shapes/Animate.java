@@ -15,27 +15,24 @@ import javax.swing.Timer;
 
 @SuppressWarnings({ "serial", "unused" })
 public class Animate extends JPanel {
-	
-	
+
 	// not used, was going to try to have shapes start at a random start point.
 	Random random = new Random();
 
 	// timer to repaint all shapes
-	
+
 	ArrayList<Shapes> jonsShapes = new ArrayList<Shapes>();
 
 	private Timer timer = new Timer(50, new TimerAction());
-	
-	public Animate()
-	{
+
+	public Animate() {
 		jonsShapes.add(new Circle(180, 25, 50, 50));
 		jonsShapes.add(new CustomRectangle(100, 1, 50, 50));
 		jonsShapes.add(new Triangle(35, 200, 50, 50));
 		jonsShapes.add(new Star(120, 100, 50, 50));
-		
+
 	}
-	
-	
+
 	// adds shapes and draws to screen.
 	@Override
 	public void paintComponent(Graphics g) {
@@ -43,9 +40,6 @@ public class Animate extends JPanel {
 		super.paintComponent(g);
 
 		Graphics2D g2d = (Graphics2D) g;
-
-		
-
 
 		int width = getWidth();
 		int height = getHeight();
@@ -58,8 +52,7 @@ public class Animate extends JPanel {
 			jonsShapes.get(i).move();
 			jonsShapes.get(i).getShapePositionX();
 			g2d.setColor((jonsShapes.get(i).shapeColor()));
-			g2d.setRenderingHint(RenderingHints.KEY_ANTIALIASING,
-					RenderingHints.VALUE_ANTIALIAS_ON);
+			g2d.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);
 
 			// Alternates solid and filled shapes.
 			if (i % 2 == 0) {
@@ -75,25 +68,22 @@ public class Animate extends JPanel {
 
 	private class TimerAction implements ActionListener {
 
-		@Override
-		public void actionPerformed(ActionEvent arg0) {
+		public void actionPerformed(final ActionEvent arg0) {
 
 			Animate.this.repaint();
 		}
 	}
-	
-	public void addShape()
-	{
+
+	public void addShape() {
 		jonsShapes.add(new Circle(180, 25, 50, 50));
 	}
 
 	// possible test for collision detection. Not implemented yet.
 	/*
-	  public static boolean testIntersection(Shapes shapeA, Shapes shapeB) {
-	  
-	  Area areaA = new Area(shapeA); areaA.intersect(new Area(shapeB)); 
-	  return !areaA.isEmpty(); 
-	  }
-	  
+	 * public static boolean testIntersection(Shapes shapeA, Shapes shapeB) {
+	 * 
+	 * Area areaA = new Area(shapeA); areaA.intersect(new Area(shapeB)); return
+	 * !areaA.isEmpty(); }
+	 * 
 	 */
 }

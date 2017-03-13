@@ -10,7 +10,6 @@ import java.awt.CardLayout;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 
-
 @SuppressWarnings("serial")
 public class ScreenSaverWindow extends JFrame {
 
@@ -18,7 +17,7 @@ public class ScreenSaverWindow extends JFrame {
 	Animate animate;
 
 	/**
-	 * Launch the application.
+	 * c Launch the application.
 	 */
 	public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
@@ -45,8 +44,7 @@ public class ScreenSaverWindow extends JFrame {
 		contentPane.setLayout(new CardLayout(0, 0));
 
 		animate = new Animate();
-		
-		
+
 		animate.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent arg0) {
