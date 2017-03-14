@@ -5,6 +5,8 @@ import java.awt.EventQueue;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
+import javax.swing.event.CaretEvent;
+import javax.swing.event.CaretListener;
 import javax.swing.plaf.basic.BasicBorders.RadioButtonBorder;
 import javax.swing.JButton;
 import javax.swing.SwingConstants;
@@ -38,6 +40,9 @@ public class CharacterSheet extends JFrame {
 	private int armor;
 	private int weaponSelection;
 	private int characterType;
+	
+	private String battleString="";
+
 	
 	public static void start() {
 		EventQueue.invokeLater(new Runnable() {
@@ -74,7 +79,7 @@ public class CharacterSheet extends JFrame {
 		panelCharacterSelect.setLayout(null);
 		
 		JLabel lblChooseYourCharacters = new JLabel("Choose Your Character's Equipment");
-		lblChooseYourCharacters.setFont(new Font("Old English Text MT", Font.PLAIN, 32));
+		lblChooseYourCharacters.setFont(new Font("Old English Text MT", Font.PLAIN, 18));
 		lblChooseYourCharacters.setHorizontalAlignment(SwingConstants.CENTER);
 		lblChooseYourCharacters.setBounds(26, 43, 522, 64);
 		panelCharacterSelect.add(lblChooseYourCharacters);
@@ -206,7 +211,6 @@ public class CharacterSheet extends JFrame {
 				 * System.out.println(weaponSelection + ", " + armor);
 				 */
 				
-		new Game(characterType, weaponSelection, armor);
 				
 				
 			}
@@ -222,9 +226,22 @@ public class CharacterSheet extends JFrame {
 		panelBattle.add(lblPlayerVersusEnemy);
 		
 		final JTextArea textBattle = new JTextArea();
-		textBattle.setEditable(false);
+		textBattle.setEnabled(false);
 		textBattle.setBounds(58, 170, 455, 151);
 		panelBattle.add(textBattle);
+		CaretListener listener = new CaretListener() {
+		      public void caretUpdate(CaretEvent caretEvent) {
+		    	  try{
+		    		  battleString = caretEvent.toString();
+		    	  }
+		    	  catch
+		    	  {
+		    		  System.out.println("caretEvent is not a string");
+		    	  }
+		    	  textBattle.append(battleString + "/n");
+		      }
+		    };
+		    textBattle.addCaretListener(listener);
 		
 		JButton btnQuit_1 = new JButton("Quit");
 		btnQuit_1.addMouseListener(new MouseAdapter() {
@@ -248,6 +265,8 @@ public class CharacterSheet extends JFrame {
 				panelBattle.setVisible(false);
 			}
 		});
+		new Game(characterType, weaponSelection, armor, CaretEvent);
+		
 	}
 }
 		

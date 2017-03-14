@@ -19,12 +19,12 @@ public class Game {
 	int eWeapon = 0;
 	int eArmor = 0;
 	
-	final Character[] playerCharacter = new Character[3];
-	final Character[] enemyCharacter = new Character[3];
-	final Weapon[] playerWeapon = new Weapon[3];
-	final Weapon[] enemyWeapon = new Weapon[3];
-	final Armor[] playerArmor = new Armor[3];
-	final Armor[] enemyArmor = new Armor[3];
+	final Character[] playerCharacter = new Character[4];
+	final Character[] enemyCharacter = new Character[4];
+	final Weapon[] playerWeapon = new Weapon[4];
+	final Weapon[] enemyWeapon = new Weapon[4];
+	final Armor[] playerArmor = new Armor[4];
+	final Armor[] enemyArmor = new Armor[4];
 	
 	ArrayList<String> battleText  = new ArrayList<String>();
 		
@@ -105,7 +105,8 @@ public class Game {
 				}
 			
 		}
-	}
+		
+		shapes.CharacterSheet.
 
 
 }
