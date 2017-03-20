@@ -1,9 +1,6 @@
 package shapes;
 
-
 import java.util.*;
-
-import javax.swing.JTextArea;
 
 import shapes.Rogue;
 import shapes.Warrior;
@@ -11,102 +8,137 @@ import shapes.Wizard;
 import shapes.Weapon;
 import shapes.Character;
 
-
 public class Game {
- 
-	public Game(int characterType, int weapon, int armor)	{
-	int eCharacterType = 0;
-	int eWeapon = 0;
-	int eArmor = 0;
-	
-	final Character[] playerCharacter = new Character[4];
-	final Character[] enemyCharacter = new Character[4];
-	final Weapon[] playerWeapon = new Weapon[4];
-	final Weapon[] enemyWeapon = new Weapon[4];
-	final Armor[] playerArmor = new Armor[4];
-	final Armor[] enemyArmor = new Armor[4];
-	
-	ArrayList<String> battleText  = new ArrayList<String>();
-		
-	EnemyCharacter(eCharacterType, eWeapon, eArmor);
-	
-	
-	playerCharacter[1] = new Warrior("Warrior");
-	playerCharacter[2] = new Rogue ("Rogue");
-	playerCharacter[3] = new Wizard("Wizard");
-	
-	enemyCharacter[1] = new Warrior("Warrior");
-	enemyCharacter[2] = new Rogue ("Rogue");
-	enemyCharacter[3] = new Wizard("Wizard");
-	
-	playerWeapon[1] = new Weapon("Axe", 4, 6);
-	playerWeapon[2] = new Weapon("Sword", 2, 8);
-	playerWeapon[3] = new Weapon("Mace", 5, 5);
-	
-	enemyWeapon[1] = new Weapon("Axe", 4, 6);
-	enemyWeapon[2] = new Weapon("Sword", 2, 8);
-	enemyWeapon[3] = new Weapon("Mace", 5, 5);
-	
-	System.out.println(playerCharacter[1].getDamage());
-	}
-// rolls to determine enemy character
-	private void EnemyCharacter(int eCharacterType, int eWeapon, int eArmor) {
-	
-		Random roll = new Random();
-		int characterRoll = roll.nextInt(3)+1;
-		
-		switch(characterRoll)
-		{
-			case 1:
-			{
-			eCharacterType = 1;//war
-			}
-			case 2:
-			{
-				eCharacterType = 2;//rogue
-			}
-			case 3: 
-			{
-				eCharacterType= 3;//wizard
-			}
+
+	// declaring like a million variables.
+
+	private Random roll;
+	private int eCharacterType = 0;
+	private int eWeapon = 0;
+	private int eArmor = 0;
+	private Character playerCharacters;
+	private Character enemyCharacters;
+	private Weapon playerWeapons;
+	private Weapon enemyWeapons;
+	private Armor playerArmors;
+	private Armor enemyArmors;
+	private ArrayList<String> battleText;
+
+	public Game(int characterType, int weapon, int armor) {
+
+		// initializing variables
+		//holy hell i had no idea what i was doing when i was making this.
+		switch(characterType){
+		case 0:{
+			playerCharacters=new Warrior("Warrior");
+		}
+		case 1: {
 			
 		}
-		characterRoll = roll.nextInt(3)+1;
-		switch(characterRoll)
-		{
-			case 1:
-			{
-			eWeapon = 1;//axe
+		}
+		
+		
+		
+		
+		
+		playerCharacters = new Character;
+		enemyCharacters = new Character;
+		playerWeapons = new Weapon[3];
+		enemyWeapons = new Weapon[3];
+		playerArmors = new Armor[3];
+		enemyArmors = new Armor[3];
+
+		EnemyCharacter(eCharacterType, eWeapon, eArmor);
+
+		playerCharacters = new Warrior("Warrior");
+		playerCharacters = new Rogue("Rogue");
+		playerCharacters = new Wizard("Wizard");
+
+		enemyCharacters = new Warrior("Warrior");
+		enemyCharacters = new Rogue("Rogue");
+		enemyCharacters = new Wizard("Wizard");
+
+		playerWeapons = new Weapon("Axe", 4, 6);
+		playerWeapons = new Weapon("Sword", 2, 8);
+		playerWeapons = new Weapon("Mace", 5, 5);
+
+		enemyWeapons = new Weapon("Axe", 4, 6);
+		enemyWeapons = new Weapon("Sword", 2, 8);
+		enemyWeapons = new Weapon("Mace", 5, 5);
+
+	
+		doBattle();
+	}
+
+	// rolls to determine enemy character
+	private void EnemyCharacter(int eCharacterType, int eWeapon, int eArmor) {
+
+		roll = new Random();
+		int characterRoll = roll.nextInt(3);
+
+		switch (characterRoll) {
+			case 0: {
+				eCharacterType = 0;// war
 			}
-			case 2:
-			{
+			case 1: {
+				eCharacterType = 1;// rogue
+			}
+			case 2: {
+				eCharacterType = 2;// wizard
+			}
+
+		}
+		characterRoll = roll.nextInt(3);
+		switch (characterRoll) {
+			case 0: {
+				eWeapon = 1;// axe
+			}
+			case 1: {
 				eWeapon = 2;// sword
 			}
-			case 3: 
-			{
-				eWeapon = 3;//mace
+			case 2: {
+				eWeapon = 3;// mace
 			}
-			
+
 		}
-		characterRoll = roll.nextInt(3)+1;
-		switch(characterRoll)
-		{
-			case 1:
-				{
-				eArmor = 1;// leather
-				}
-			case 2:
-				{
-				eArmor = 2;//chain
-				}
-			case 3: 
-				{
-				eWeapon = 3;//plate
-				}
-			
+		characterRoll = roll.nextInt(3);
+		switch (characterRoll) {
+			case 0: {
+				eArmor = 0;// leather
+			}
+			case 1: {
+				eArmor = 1;// chain
+			}
+			case 2: {
+				eWeapon = 2;// plate
+			}
+
 		}
 		
-		shapes.CharacterSheet.
+		
 
+	}
 
+	private void doBattle() {
+		battleText = new ArrayList<>();
+		battleText.add("A new challenger approaches: Player against the Champion.");
+		int turn=1;
+		while (playerCharacters.getHealth() <= 0 || enemyCharacters.getHealth() <= 0){
+			if(turn ==1){
+				
+			}else{
+				
+			}
+			
+			//alternates plyaer and enemy turn
+			turn = turn * -1;
+		}
+	}
+
+	// way to spit back the battleText.
+	public ArrayList<String> getBattleText() {
+		return battleText;
+	}
+
+	// try here for doing output?
 }
