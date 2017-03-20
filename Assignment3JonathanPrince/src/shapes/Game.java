@@ -31,6 +31,7 @@ public class Game {
 		switch(characterType){
 		case 0:{
 			playerCharacters=new Warrior("Warrior");
+			break;
 		}
 		case 1: {
 			
@@ -40,31 +41,31 @@ public class Game {
 		
 		
 		
-		
-		playerCharacters = new Character;
-		enemyCharacters = new Character;
-		playerWeapons = new Weapon[3];
-		enemyWeapons = new Weapon[3];
-		playerArmors = new Armor[3];
-		enemyArmors = new Armor[3];
-
-		EnemyCharacter(eCharacterType, eWeapon, eArmor);
-
-		playerCharacters = new Warrior("Warrior");
-		playerCharacters = new Rogue("Rogue");
-		playerCharacters = new Wizard("Wizard");
-
-		enemyCharacters = new Warrior("Warrior");
-		enemyCharacters = new Rogue("Rogue");
-		enemyCharacters = new Wizard("Wizard");
-
-		playerWeapons = new Weapon("Axe", 4, 6);
-		playerWeapons = new Weapon("Sword", 2, 8);
-		playerWeapons = new Weapon("Mace", 5, 5);
-
-		enemyWeapons = new Weapon("Axe", 4, 6);
-		enemyWeapons = new Weapon("Sword", 2, 8);
-		enemyWeapons = new Weapon("Mace", 5, 5);
+//		
+//		playerCharacters = new Character;
+//		enemyCharacters = new Character;
+//		playerWeapons = new Weapon[3];
+//		enemyWeapons = new Weapon[3];
+//		playerArmors = new Armor[3];
+//		enemyArmors = new Armor[3];
+//
+//		EnemyCharacter(eCharacterType, eWeapon, eArmor);
+//
+//		playerCharacters = new Warrior("Warrior");
+//		playerCharacters = new Rogue("Rogue");
+//		playerCharacters = new Wizard("Wizard");
+//
+//		enemyCharacters = new Warrior("Warrior");
+//		enemyCharacters = new Rogue("Rogue");
+//		enemyCharacters = new Wizard("Wizard");
+//
+//		playerWeapons = new Weapon("Axe", 4, 6);
+//		playerWeapons = new Weapon("Sword", 2, 8);
+//		playerWeapons = new Weapon("Mace", 5, 5);
+//
+//		enemyWeapons = new Weapon("Axe", 4, 6);
+//		enemyWeapons = new Weapon("Sword", 2, 8);
+//		enemyWeapons = new Weapon("Mace", 5, 5);
 
 	
 		doBattle();
