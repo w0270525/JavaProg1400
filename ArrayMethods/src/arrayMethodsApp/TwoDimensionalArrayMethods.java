@@ -20,6 +20,8 @@ public class TwoDimensionalArrayMethods {
 		//TODO: Returns whether or not the array mimics a square.
 		//(IE: same number of rows and columns)
 		//Output result to the console...but not directly via this method
+		return true;
+		
 	}
 	
 	public boolean isSequence()
@@ -33,12 +35,14 @@ public class TwoDimensionalArrayMethods {
 		//9  10 11 12
 		
 		//Output result to the console...but not directly via this method
+		return true;
 	}
 	
 	public int getSmallestValue()
 	{
 		//TODO: Returns the smallest integer value in the array.
 		//Output result to the console...but not directly via this method
+		return 0;
 	}
 	
 	public void displayValues()
@@ -59,7 +63,7 @@ public class TwoDimensionalArrayMethods {
 		//meaning that the array must be a square
 		//and the sum of all rows, columns, and diagonals are the same
 		//Output result to the console...but not directly via this method
-		
+		return true;
 	}
 	
 	public int getRowSum(int rowIndex)
@@ -67,6 +71,7 @@ public class TwoDimensionalArrayMethods {
 		//TODO: Returns the sum of the row at the specified index
 		//If the supplied rowIndex is out of bounds, then return -1
 		//Output result to the console...but not directly via this method
+		return 0;
 	}
 	
 	public boolean isLatinSquare()
@@ -75,6 +80,7 @@ public class TwoDimensionalArrayMethods {
 		//meaning that each int value occurs exactly once in each row
 		//and exactly once in each column
 		//Output result to the console...but not directly via this method
+		return true;
 	}
 	
 	

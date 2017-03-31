@@ -11,6 +11,7 @@ public class PrimeNumbersApp {
 		
 		String userResponse = "";
 		int number;
+		@SuppressWarnings("unused")
 		int totalNumberOfPrimesFound;
 		String tryAgain = "Y";
 		boolean isValidResponse;

@@ -7,7 +7,7 @@ public class OneDimensionalArrayMethods {
 	//constructor...
 	public OneDimensionalArrayMethods(int[] the1DArrayOfIntegers)
 	{
-		values = the1DArrayOfIntegers;
+		setValues(the1DArrayOfIntegers);
 	}
 	
 	public void start()
@@ -60,6 +60,7 @@ public class OneDimensionalArrayMethods {
 	{
 		//TODO: Returns the second largest element in the array
 		//Output result to the console...but not directly via this method
+		return 0;
 	}
 	
 	public boolean isArraySortedAscending()
@@ -67,12 +68,14 @@ public class OneDimensionalArrayMethods {
 		//TODO: Return whether or not the array is currently sorted
 		//in ascending order
 		//Output result to the console...but not directly via this method
+		return true;
 	}
 	
 	public boolean containsDuplicates()
 	{
 		//TODO: Return whether or not the array contains duplicate elements.
 		//Output result to the console...but not directly via this method
+		return true;
 	}
 	
 	public boolean containsAdjacentDuplicates()
@@ -80,6 +83,15 @@ public class OneDimensionalArrayMethods {
 		//TODO: Return whether or not the array contains two adjacent
 		//duplicate elements.
 		//Output result to the console...but not directly via this method
+		return true;
+	}
+
+	public int[] getValues() {
+		return values;
+	}
+
+	public void setValues(int[] values) {
+		this.values = values;
 	}
 	
 	

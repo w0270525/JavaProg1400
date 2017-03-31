@@ -13,7 +13,15 @@ public class Tire {
 	
 	public void inflate()
 	{
-		psi = MAX_PSI;
+		setPsi(MAX_PSI);
+	}
+
+	public int getPsi() {
+		return psi;
+	}
+
+	public void setPsi(int psi) {
+		this.psi = psi;
 	}
 	
 	
