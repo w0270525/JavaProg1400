@@ -1,12 +1,12 @@
-package shapes;
+package dnd;
 
 import java.util.*;
 
-import shapes.Rogue;
-import shapes.Warrior;
-import shapes.Wizard;
-import shapes.Weapon;
-import shapes.Character;
+import dnd.Character;
+import dnd.Rogue;
+import dnd.Warrior;
+import dnd.Weapon;
+import dnd.Wizard;
 
 public class Game {
 

@@ -1,4 +1,4 @@
-package shapes;
+package dnd;
 
 import java.awt.EventQueue;
 
@@ -46,12 +46,7 @@ public class CharacterSheet extends JFrame {
 					e.printStackTrace();
 				}
 
-				game = new Game(characterType, weaponSelection, armor);
-				for (int loop = 0; loop < game.getBattleText().size(); loop++) {
-					System.out.println(game.getBattleText().size());
-					textBattle.append(game.getBattleText().get(loop));
-
-				}
+				
 
 			}
 		});
@@ -196,6 +191,12 @@ public class CharacterSheet extends JFrame {
 				 * // to test the radio buttons selection
 				 * System.out.println(weaponSelection + ", " + armor);
 				 */
+				game = new Game(characterType, weaponSelection, armor);
+				for (int loop = 0; loop < game.getBattleText().size(); loop++) {
+					System.out.println(game.getBattleText().size());
+					textBattle.append(game.getBattleText().get(loop));
+
+				}
 
 			}
 		});

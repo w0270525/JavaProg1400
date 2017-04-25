@@ -1,33 +1,35 @@
-package shapes;
+package dnd;
 
 import java.util.Random;
 
-public class Wizard extends Character {
+public class Rogue extends Character {
 
-	public Wizard(String Name) {
+	public Rogue(String Name) {
 		super(Name);
 		// TODO Auto-generated constructor stub
 	}
 
 	@Override
 	public double damageModifier() {
-		// TODO Auto-generated method stub
-		return 0.8;
+		return 1;
+		
+		
 	}
 
 	@Override
 	public int healthPoints() {
-		// TODO Auto-generated method stub
+		
 		return 100;
 	}
+	
 	public int getDamage() {
 		Random damageRoll = new Random();
 		int roll = damageRoll.nextInt(20) +1;
-		if( roll > 15)//double damage for 20
+		if( roll > 19)//double damage for 20
 		{
 			return 2;
 		}
-		else if(roll > 1)
+		else if(roll > 5)
 		{
 			return 1;
 		}
@@ -36,6 +38,7 @@ public class Wizard extends Character {
 			return 0;
 		}
 	}
-	
 
+	
+	//rogue --> chance to back stab = instant kill. - not implemented
 }
