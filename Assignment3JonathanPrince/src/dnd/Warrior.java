@@ -10,8 +10,8 @@ public class Warrior extends Character {
 	}
 
 	@Override
-	public double damageModifier() {
-		return 1.1;
+	public int damageModifier() {
+		return 1;
 		// TODO Auto-generated method stub
 		
 	}

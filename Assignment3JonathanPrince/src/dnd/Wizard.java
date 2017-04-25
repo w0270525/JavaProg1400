@@ -10,9 +10,9 @@ public class Wizard extends Character {
 	}
 
 	@Override
-	public double damageModifier() {
+	public int damageModifier() {
 		// TODO Auto-generated method stub
-		return 0.8;
+		return 1;
 	}
 
 	@Override

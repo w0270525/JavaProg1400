@@ -10,7 +10,7 @@ public class Rogue extends Character {
 	}
 
 	@Override
-	public double damageModifier() {
+	public int damageModifier() {
 		return 1;
 		
 		

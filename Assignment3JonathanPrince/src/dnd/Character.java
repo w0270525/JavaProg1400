@@ -4,7 +4,7 @@ package dnd;
 
 public abstract class Character {
 	
-	private double health = 100;
+	private int health = 100;
 
 	private int armorPoints;
 	
@@ -14,15 +14,15 @@ public abstract class Character {
 	public Character(String Name) {
 		
 	}
-	public abstract double damageModifier();
+	public abstract int damageModifier();
 	
 	public abstract int healthPoints();
 	
 	
-	public double getHealth() {
+	public int getHealth() {
 		return health;
 	}
-	public void setHealth(double health) {
+	public void setHealth(int health) {
 		this.health = health;
 	}
 
