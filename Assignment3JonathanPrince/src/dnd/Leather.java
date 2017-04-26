@@ -24,7 +24,7 @@ public class Leather extends Armor {
 	/* (non-Javadoc)
 	 * @see dnd.Armor#DamageReduction()
 	 */
-	public int DamageReduction() {
+	private int DamageReduction() {
 		// TODO Auto-generated method stub
 		int rand = r.nextInt(3);
 		return rand;
