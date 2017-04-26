@@ -4,15 +4,18 @@ package dnd;
 
 public abstract class Character {
 	
+	
 	private int health = 100;
 
 	private int armorPoints;
 	
 	Weapon weapon;
+	String name;
 	
 	
-	public Character(String Name) {
-		
+	public Character(String name, Weapon weapon) {
+		this.name= name;
+		this.weapon = weapon;
 	}
 	public abstract int damageModifier();
 	

@@ -4,8 +4,8 @@ import java.util.Random;
 
 public class Wizard extends Character {
 
-	public Wizard(String Name) {
-		super(Name);
+	public Wizard(String Name, Weapon weapon) {
+		super(Name, weapon);
 		// TODO Auto-generated constructor stub
 	}
 

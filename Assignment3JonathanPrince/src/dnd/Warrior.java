@@ -4,8 +4,8 @@ import java.util.Random;
 
 public class Warrior extends Character {
 
-	public Warrior(String Name) {
-		super(Name);
+	public Warrior(String Name, Weapon weapon) {
+		super(Name,  weapon);
 		// TODO Auto-generated constructor stub
 	}
 
