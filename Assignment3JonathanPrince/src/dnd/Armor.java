@@ -3,7 +3,7 @@ package dnd;
 public abstract class Armor {
 
 	
-private abstract int DamageReduction();
+public abstract int DamageReduction();
 
 
 public  Armor() {

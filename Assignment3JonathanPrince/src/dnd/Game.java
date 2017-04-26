@@ -142,10 +142,13 @@ Attack(playerCharacters, enemyCharacters);
 	}
 
 	private void Attack(Character char1, Character char2) {
-		int dam =char2.getArmorPoints()-char1.getDamage();
+		
+		int dam =char1.getDamage()-char2.getArmorPoints();
+	
+		//if the armor doesn't negate the damage.
 		if (dam > 0)
-				int newHealth= char2.getHealth() -( char2.getArmorPoints()-char1.getDamage());
-		char2.setHealth());
+				char2.setHealth(dam);
+	
 		
 	}
 
