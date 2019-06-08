@@ -27,6 +27,7 @@ public class Game {
 	// initializing variables
 
 	// holy hell i had no idea what i was doing when i was making this.
+	// I really don't know what i'm doing now, so there's that.
 
 	switch (weapon) {
 	case 0: {
